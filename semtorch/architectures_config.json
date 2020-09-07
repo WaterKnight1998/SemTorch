@@ -1,0 +1,91 @@
+{
+    "unet": {
+        "supported_configs": [
+            {
+                "segmentation_type" : ["Semantic Segmentation"],
+                "number_of_classes": ["binary", "multiple"]
+            }
+        ],
+        "backbones": [
+            "resnet18", 
+            "resnet34", 
+            "resnet50",
+            "resnet101",
+            "resnet152",
+            "xresnet18",
+            "xresnet34",
+            "xresnet50",
+            "xresnet101",
+            "xresnet152",
+            "squeezenet1_0",
+            "squeezenet1_1",
+            "densenet121",
+            "densenet169",
+            "densenet201",
+            "densenet161",
+            "vgg11_bn",
+            "vgg13_bn",
+            "vgg16_bn",
+            "vgg19_bn",
+            "alexnet"
+        ]
+    },
+    "deeplabv3+" : {
+        "supported_configs": [
+            {
+                "segmentation_type" : ["Semantic Segmentation"],
+                "number_of_classes": ["binary", "multiple"]
+            }
+        ],
+        
+        "backbones": [    
+            "resnet18",
+            "resnet34",
+            "resnet50",
+            "resnet101",
+            "resnet152",
+            "resnet50c",
+            "resnet101c",
+            "resnet152c",
+            "xception65",
+            "mobilenet_v2"
+        ]
+    },
+    "hrnet": {
+        "supported_configs": [
+            {
+                "segmentation_type" : ["Semantic Segmentation"],
+                "number_of_classes": ["binary", "multiple"]
+            }
+        ],
+        "backbones": [
+            "hrnet_w18_small_model_v1", 
+            "hrnet_w18_small_model_v2", 
+            "hrnet_w18",
+            "hrnet_w30",
+            "hrnet_w32",
+            "hrnet_w48"
+        ]
+    },
+    "maskrcnn": {
+        "supported_configs": [
+            {
+                "segmentation_type" : ["Semantic Segmentation"],
+                "number_of_classes": ["binary"]
+            }
+        ],        
+        "backbones": ["resnet50"]
+    },
+    "u2^net": {
+        "supported_configs": [
+            {
+                "segmentation_type" : ["Semantic Segmentation"],
+                "number_of_classes": ["binary"]
+            }
+        ],
+        "backbones": [
+            "small", 
+            "normal"
+        ]
+    } 
+}
