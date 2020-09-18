@@ -2,7 +2,7 @@
 
 This repository contains different deep learning architectures definitions that can be applied to image segmentation. 
 
-All the architectures are implemented in [PyTorch](https://pytorch.org/) and can been trained easily with [FastAI 2](https://github.com/fastai/fastaihttps://github.com/fastai/fastai). 
+All the architectures are implemented in [PyTorch](https://pytorch.org/) and can been trained easily with [FastAI 2](https://github.com/fastai/fastai). 
 
 In [Deep-Tumour-Spheroid repository](https://github.com/WaterKnight1998/Deep-Tumour-Spheroid) can be found and example of how to apply it with a custom dataset, in that case brain tumours images are used.
 
