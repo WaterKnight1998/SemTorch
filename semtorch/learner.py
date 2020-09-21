@@ -46,10 +46,11 @@ def check_architecture_configuration(number_classes, segmentation_type, architec
         raise BackboneNotSupportedError(backbone_name, architecture_config["backbones"])
 
     bad_config = True
+    print(architecture_config)
+    print(segmentation_type, number_classes)
     for supported_config in architecture_config["supported_configs"]:
-        if not (segmentation_type == supported_config["segmentation_type"] and number_classes in supported_config["number_of_classes"]):
+        if (segmentation_type in supported_config["segmentation_type"] and number_classes in supported_config["number_of_classes"]):
             bad_config = False
-
     if bad_config:
         raise ArchitectureConfigNotSupportedError(segmentation_type, number_classes)
 
@@ -82,7 +83,7 @@ def get_segmentation_learner(dls, number_classes, segmentation_type, architectur
                              loss_func=None, opt_func=Adam, lr=defaults.lr, splitter=trainable_params, 
                              cbs=None, pretrained=True, normalize=True, image_size=None, metrics=None, 
                              path=None, model_dir='models', wd=None, wd_bn_bias=False, train_bn=True,
-                             moms=(0.95,0.85,0.95)):
+                             moms=(0.95,0.85,0.95), n_in=3):
     """This function return a learner for the provided architecture and backbone
 
     Parameters:
@@ -106,6 +107,7 @@ def get_segmentation_learner(dls, number_classes, segmentation_type, architectur
     wd_bn_bias (bool):
     train_bn (bool):
     moms (Tuple(float)): tuple of different momentuns
+    n_in (int): Number of input channels
                     
 
     Returns:
@@ -122,9 +124,17 @@ def get_segmentation_learner(dls, number_classes, segmentation_type, architectur
     else:
         raise Exception("The number of classes must be >=2")
 
+    if n_in != 3 and architecture_name not in ['unet', 'u2^net']:
+        raise Exception("More than 3 input channels is currently only supported for unet and u^2net")
+
+    if n_in != 3 and pretrained == True:
+        raise Exception("Error: Can only use pretrained backbones with three input channels")
+
+
     check_architecture_configuration(number_classes=number_classes_name, segmentation_type=segmentation_type, 
                                      architecture_name=architecture_name, backbone_name=backbone_name)
-    
+
+
     learner = None
 
     if architecture_name == "unet":
@@ -133,7 +143,7 @@ def get_segmentation_learner(dls, number_classes, segmentation_type, architectur
         learner = unet_learner(dls=dls, arch=unet_backbone_name[backbone_name], metrics=metrics, wd=wd,
                                loss_func=loss_func, opt_func=opt_func, lr=lr, splitter=splitter, cbs=cbs,
                                path=path, model_dir=model_dir, wd_bn_bias=wd_bn_bias, train_bn=train_bn,
-                               pretrained=pretrained, normalize=normalize, moms=moms)
+                               pretrained=pretrained, normalize=normalize, moms=moms, n_in=n_in)
     
     
     elif architecture_name == "deeplabv3+":
@@ -162,9 +172,9 @@ def get_segmentation_learner(dls, number_classes, segmentation_type, architectur
     elif architecture_name == "u2^net":
         model = None
         if backbone_name == "small":
-            model = u2net.U2NETP(3,1)
+            model = u2net.U2NETP(n_in,1)
         elif backbone_name == "normal":
-            model = u2net.U2NET(3, 1)
+            model = u2net.U2NET(n_in,1)
 
         learner = u2net.USquaredNetLearner(dls=dls, model=model, opt_func=opt_func, lr=lr, splitter=splitter, cbs=cbs,
                                            metrics=metrics, path=path, model_dir=model_dir, wd=wd, wd_bn_bias=wd_bn_bias, train_bn=train_bn)

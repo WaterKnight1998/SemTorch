@@ -1,1 +1,3 @@
 .vscode/
+nbs/
+__pycache__/
