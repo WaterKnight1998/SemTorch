@@ -46,8 +46,6 @@ def check_architecture_configuration(number_classes, segmentation_type, architec
         raise BackboneNotSupportedError(backbone_name, architecture_config["backbones"])
 
     bad_config = True
-    print(architecture_config)
-    print(segmentation_type, number_classes)
     for supported_config in architecture_config["supported_configs"]:
         if (segmentation_type in supported_config["segmentation_type"] and number_classes in supported_config["number_of_classes"]):
             bad_config = False
