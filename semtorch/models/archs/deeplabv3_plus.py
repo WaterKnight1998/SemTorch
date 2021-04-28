@@ -24,6 +24,9 @@ class DeepLabV3Plus(SegBaseModel):
         if self.backbone_name.startswith('mobilenet'):
             c1_channels = 24
             c4_channels = 320
+        elif self.backbone_name in ['resnet34', 'resnet18'] :
+            c1_channels = 64
+            c4_channels = 512
         else:
             c1_channels = 256
             c4_channels = 2048
