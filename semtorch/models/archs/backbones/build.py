@@ -22,12 +22,12 @@ model_urls = {
     'resnet152c': 'https://github.com/LikeLy-Journey/SegmenTron/releases/download/v0.1.0/resnet152-0d43d698.pth',
     'xception65': 'https://github.com/LikeLy-Journey/SegmenTron/releases/download/v0.1.0/tf-xception65-270e81cf.pth',
     'mobilenet_v2': 'https://github.com/LikeLy-Journey/SegmenTron/releases/download/v0.1.0/mobilenetV2-15498621.pth',
-    "hrnet_w18_small_v1": "https://dl.dropboxusercontent.com/s/do1we7sfxowkm2w/hrnet_w18_small_model_v1.pth?dl=0",
-    "hrnet_w18_small_v2": "https://dl.dropboxusercontent.com/s/pz3vdp8jg0ffkbr/hrnet_w18_small_model_v2.pth?dl=0",
-    "hrnet_w18": "https://dl.dropboxusercontent.com/s/cewi4owfrw00oza/hrnetv2_w18_imagenet_pretrained.pth?dl=0",
-    "hrnet_w30": "https://dl.dropboxusercontent.com/s/r1rafhhw1hfhpgl/hrnetv2_w30_imagenet_pretrained.pth?dl=0",
-    "hrnet_w32": "https://dl.dropboxusercontent.com/s/7bu7mku682von0f/hrnetv2_w32_imagenet_pretrained.pth?dl=0",
-    "hrnet_w48": "https://dl.dropboxusercontent.com/s/54s8dav0p32q9hx/hrnetv2_w48_imagenet_pretrained.pth?dl=0"
+    "hrnet_w18_small_v1": "https://dl.dropboxusercontent.com/s/do1we7sfxowkm2w/hrnet_w18_small_model_v1.pth",
+    "hrnet_w18_small_v2": "https://dl.dropboxusercontent.com/s/pz3vdp8jg0ffkbr/hrnet_w18_small_model_v2.pth",
+    "hrnet_w18": "https://dl.dropboxusercontent.com/s/cewi4owfrw00oza/hrnetv2_w18_imagenet_pretrained.pth",
+    "hrnet_w30": "https://dl.dropboxusercontent.com/s/r1rafhhw1hfhpgl/hrnetv2_w30_imagenet_pretrained.pth",
+    "hrnet_w32": "https://dl.dropboxusercontent.com/s/7bu7mku682von0f/hrnetv2_w32_imagenet_pretrained.pth",
+    "hrnet_w48": "https://dl.dropboxusercontent.com/s/54s8dav0p32q9hx/hrnetv2_w48_imagenet_pretrained.pth"
 }
 
 def load_backbone_pretrained(model, backbone):
