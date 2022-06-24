@@ -476,7 +476,7 @@ class HighResolutionNet(nn.Module):
         return "HRNet backbone wieghts loaded"
 
 backbone_config={
-    "hrnet_w18_small_v1": {
+    "hrnet_w18_small_model_v1": {
         "STAGE1": {
             "NUM_MODULES": 1,
             "NUM_BRANCHES": 1,
@@ -510,7 +510,7 @@ backbone_config={
             "FUSE_METHOD": "SUM"
         }
     },
-    "hrnet_w18_small_v2": {
+    "hrnet_w18_small_model_v2": {
         "STAGE1": {
             "NUM_MODULES": 1,
             "NUM_BRANCHES": 1,
@@ -683,13 +683,13 @@ backbone_config={
 }
 
 @BACKBONE_REGISTRY.register()
-def hrnet_w18_small_v1(norm_layer=nn.BatchNorm2d):
-    model = HighResolutionNet(config=backbone_config["hrnet_w18_small_v1"], norm_layer=norm_layer)
+def hrnet_w18_small_model_v1(norm_layer=nn.BatchNorm2d):
+    model = HighResolutionNet(config=backbone_config["hrnet_w18_small_model_v1"], norm_layer=norm_layer)
     return model
 
 @BACKBONE_REGISTRY.register()
-def hrnet_w18_small_v2(norm_layer=nn.BatchNorm2d):
-    model = HighResolutionNet(config=backbone_config["hrnet_w18_small_v2"], norm_layer=norm_layer)
+def hrnet_w18_small_model_v2(norm_layer=nn.BatchNorm2d):
+    model = HighResolutionNet(config=backbone_config["hrnet_w18_small_model_v2"], norm_layer=norm_layer)
     return model
 
 @BACKBONE_REGISTRY.register()
