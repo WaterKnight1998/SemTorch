@@ -18,10 +18,10 @@ BN_MOMENTUM = 0.01
 
 
 architecture_config = {
-    "hrnet_w18_small_v1": {
+    "hrnet_w18_small_model_v1": {
         "FINAL_CONV_KERNEL": 1
     },
-    "hrnet_w18_small_v2": {
+    "hrnet_w18_small_model_v2": {
         "FINAL_CONV_KERNEL": 1
     },
     "hrnet_w18": {
